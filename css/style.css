@@ -1,0 +1,81 @@
+.grid1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 6vh;
+}
+
+main h2 {
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.5vw;
+  color: #635a56;
+  display: block;
+}
+
+main h3 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.2vw;
+  color: #635a56;
+  display: block;
+}
+
+main {
+  font-family: neue-haas-grotesk-display, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  font-size: 1vw;
+  color: #635a56;
+}
+
+.productlist article {
+  display: flex;
+  flex-direction: column;
+}
+.productlist article.soldOut img {
+  opacity: 0.5;
+}
+.productlist article.soldOut::before {
+  content: "Sold Out";
+  position: absolute;
+  background: var(--color);
+  color: var(--background-color);
+  padding: 1rem;
+}
+.productlist article .discounted,
+.productlist article .price span {
+  display: none;
+}
+.productlist article.onSale .discounted {
+  display: flex;
+  justify-content: space-around;
+  width: 15vw;
+  position: relative;
+  margin-top: -6vh;
+  margin-left: 10vw;
+}
+
+.productlist article.onSale .price span {
+  display: initial;
+}
+
+.productlist article {
+  margin-bottom: 1rem;
+}
+.discounted p:last-child {
+  background: #635a56;
+  color: #fff;
+  padding: 0.5rem;
+  margin-top: 1vh;
+}
+
+main a {
+  margin-top: 4vh;
+  text-decoration: underline;
+}
+
+.smallProduct img {
+  width: 20vw;
+}
