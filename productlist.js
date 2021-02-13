@@ -33,6 +33,9 @@ function handleProductlist(data) {
 function showProduct(product) {
   console.log(product);
   //grad template
+  console.log(
+    "I am" + product.productdisplayname + "and i have id " + product.id
+  );
   const template = document.querySelector("#smallProductTemplate").content;
   //clone
   const copy = template.cloneNode(true);
@@ -46,13 +49,18 @@ function showProduct(product) {
   ).src = `https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp`;
   copy.querySelector("img.productimage").alt = product.productdisplayname;
 
+  copy.querySelector("a").href = `product.html?id=${product.id}`;
+
   if (product.soldout) {
     copy.querySelector("article").classList.add("soldOut");
   }
 
   if (product.discount) {
     copy.querySelector("article").classList.add("onSale");
-    copy.querySelector(".hind").textConent = product.price / product.discount;
+    copy.querySelector(".discounted p").textContent =
+      "now DKK " + (product.price * (100 - product.discount)) / 100 + ".-";
+    copy.querySelector(".discounted .prec").textContent =
+      "- " + product.discount + "%";
   }
 
   /*  <div class="discounted">

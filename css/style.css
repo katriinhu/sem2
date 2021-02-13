@@ -1,8 +1,7 @@
-.grid1 {
+main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 350px));
   grid-row-gap: 6vh;
-  grid-template-rows: auto;
 }
 
 main h2 {
@@ -11,6 +10,7 @@ main h2 {
   font-size: 1.5vw;
   color: #635a56;
   display: block;
+  grid-column: 1/-1;
 }
 
 main h3 {
@@ -19,6 +19,7 @@ main h3 {
   font-size: 1.2vw;
   color: #635a56;
   display: block;
+  flex-grow: 3;
 }
 
 main {
@@ -65,11 +66,12 @@ main {
 .productlist article {
   margin-bottom: 1rem;
 }
-.discounted p:last-child {
+.discounted h4 {
   background: #635a56;
   color: #fff;
   padding: 0.5rem;
   margin-top: 1vh;
+  font-weight: 300;
 }
 
 main a {
@@ -79,4 +81,31 @@ main a {
 
 .smallProduct img {
   width: 20vw;
+}
+
+@media screen and (max-width: 800px) {
+  .smallProduct img {
+    width: 70vw;
+  }
+
+  main h2 {
+    font-size: 3.5vw;
+  }
+
+  main h3 {
+    font-size: 3.2vw;
+  }
+
+  main {
+    font-size: 3vw;
+  }
+
+  .productlist article.onSale .discounted {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    position: relative;
+    margin-top: 0vh;
+    margin-left: -16vw;
+  }
 }
